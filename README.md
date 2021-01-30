@@ -2,6 +2,10 @@
 <img src="https://media.moddb.com/images/mods/1/44/43024/DML2_logo.1.png"/>
 </p>
 
+# ABOUT THIS FORK
+
+This fork was created to introduce the possibility of a more convenient multiplayer game.
+
 # ABOUT DML 2.X
 <strong> Doom Mod Loader 2.X </strong> is a launcher for Doom (and also for Doom 2, Heretic, Hexen, Chex Quest, Strife etc...) mods!<br>
 It's the revamped and updated <strong>C#</strong> version of the <a href="https://github.com/Premo36/DML_LEGACY">old VB.NET Doom Mod Loader</a>
