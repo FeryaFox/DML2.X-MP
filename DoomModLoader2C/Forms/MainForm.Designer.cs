@@ -42,6 +42,15 @@
             this.cmdRemovePreset = new System.Windows.Forms.Button();
             this.lstPWAD = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.hostPC = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.hostFlag = new System.Windows.Forms.TextBox();
+            this.checkHost = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ipConnect = new System.Windows.Forms.TextBox();
+            this.checkConnect = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.chkCustomConfiguration = new System.Windows.Forms.CheckBox();
             this.cmdAddConfiguration = new System.Windows.Forms.Button();
@@ -85,11 +94,12 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reloadResourcesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openFILEFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reloadResourcesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PathBinding)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -113,7 +123,7 @@
             this.groupBox1.Controls.Add(this.lstPWAD);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 509);
+            this.groupBox1.Size = new System.Drawing.Size(314, 596);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MODS (-file / -deh)";
@@ -187,7 +197,7 @@
             this.cmbPreset.DisplayMember = "name";
             this.cmbPreset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPreset.FormattingEnabled = true;
-            this.cmbPreset.Location = new System.Drawing.Point(6, 458);
+            this.cmbPreset.Location = new System.Drawing.Point(6, 541);
             this.cmbPreset.Name = "cmbPreset";
             this.cmbPreset.Size = new System.Drawing.Size(302, 21);
             this.cmbPreset.TabIndex = 6;
@@ -199,7 +209,7 @@
             // 
             // cmdRemovePreset
             // 
-            this.cmdRemovePreset.Location = new System.Drawing.Point(6, 482);
+            this.cmdRemovePreset.Location = new System.Drawing.Point(6, 568);
             this.cmdRemovePreset.Name = "cmdRemovePreset";
             this.cmdRemovePreset.Size = new System.Drawing.Size(302, 21);
             this.cmdRemovePreset.TabIndex = 7;
@@ -216,11 +226,12 @@
             this.lstPWAD.Location = new System.Drawing.Point(6, 110);
             this.lstPWAD.Name = "lstPWAD";
             this.lstPWAD.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstPWAD.Size = new System.Drawing.Size(302, 342);
+            this.lstPWAD.Size = new System.Drawing.Size(302, 420);
             this.lstPWAD.TabIndex = 5;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBox10);
             this.groupBox2.Controls.Add(this.groupBox9);
             this.groupBox2.Controls.Add(this.groupBox8);
             this.groupBox2.Controls.Add(this.groupBox6);
@@ -229,10 +240,102 @@
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(332, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(563, 509);
+            this.groupBox2.Size = new System.Drawing.Size(563, 596);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Launch Options";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.hostPC);
+            this.groupBox10.Controls.Add(this.label11);
+            this.groupBox10.Controls.Add(this.hostFlag);
+            this.groupBox10.Controls.Add(this.checkHost);
+            this.groupBox10.Controls.Add(this.label10);
+            this.groupBox10.Controls.Add(this.ipConnect);
+            this.groupBox10.Controls.Add(this.checkConnect);
+            this.groupBox10.Controls.Add(this.label9);
+            this.groupBox10.Location = new System.Drawing.Point(6, 509);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(550, 80);
+            this.groupBox10.TabIndex = 4;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "MP";
+            // 
+            // hostPC
+            // 
+            this.hostPC.Location = new System.Drawing.Point(117, 42);
+            this.hostPC.Name = "hostPC";
+            this.hostPC.Size = new System.Drawing.Size(52, 20);
+            this.hostPC.TabIndex = 37;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(72, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(35, 26);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "player\r\ncount";
+            // 
+            // hostFlag
+            // 
+            this.hostFlag.Location = new System.Drawing.Point(208, 42);
+            this.hostFlag.Name = "hostFlag";
+            this.hostFlag.Size = new System.Drawing.Size(336, 20);
+            this.hostFlag.TabIndex = 35;
+            this.hostFlag.Visible = false;
+            // 
+            // checkHost
+            // 
+            this.checkHost.AutoSize = true;
+            this.checkHost.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkHost.Location = new System.Drawing.Point(13, 43);
+            this.checkHost.Name = "checkHost";
+            this.checkHost.Size = new System.Drawing.Size(48, 17);
+            this.checkHost.TabIndex = 33;
+            this.checkHost.Text = "Host";
+            this.checkHost.UseVisualStyleBackColor = true;
+            this.checkHost.CheckedChanged += new System.EventHandler(this.checkHost_CheckedChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(178, 49);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "flag";
+            this.label10.Visible = false;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // ipConnect
+            // 
+            this.ipConnect.Location = new System.Drawing.Point(208, 17);
+            this.ipConnect.Name = "ipConnect";
+            this.ipConnect.Size = new System.Drawing.Size(336, 20);
+            this.ipConnect.TabIndex = 32;
+            this.ipConnect.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // checkConnect
+            // 
+            this.checkConnect.AutoSize = true;
+            this.checkConnect.Location = new System.Drawing.Point(13, 19);
+            this.checkConnect.Name = "checkConnect";
+            this.checkConnect.Size = new System.Drawing.Size(66, 17);
+            this.checkConnect.TabIndex = 20;
+            this.checkConnect.Text = "Connect\r\n";
+            this.checkConnect.UseVisualStyleBackColor = true;
+            this.checkConnect.CheckedChanged += new System.EventHandler(this.checkConnect_CheckedChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(187, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(15, 13);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "ip";
             // 
             // groupBox9
             // 
@@ -644,7 +747,7 @@
             // cmdPlay
             // 
             this.cmdPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPlay.Location = new System.Drawing.Point(10, 542);
+            this.cmdPlay.Location = new System.Drawing.Point(10, 629);
             this.cmdPlay.Name = "cmdPlay";
             this.cmdPlay.Size = new System.Drawing.Size(885, 82);
             this.cmdPlay.TabIndex = 0;
@@ -687,6 +790,13 @@
             this.preferencesToolStripMenuItem.Text = "Preferences...";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
+            // openFILEFolderToolStripMenuItem
+            // 
+            this.openFILEFolderToolStripMenuItem.Name = "openFILEFolderToolStripMenuItem";
+            this.openFILEFolderToolStripMenuItem.Size = new System.Drawing.Size(194, 20);
+            this.openFILEFolderToolStripMenuItem.Text = "Open \"FILE\" folder in file explorer";
+            this.openFILEFolderToolStripMenuItem.Click += new System.EventHandler(this.openFILEFolderToolStripMenuItem_Click_1);
+            // 
             // reloadResourcesToolStripMenuItem1
             // 
             this.reloadResourcesToolStripMenuItem1.Name = "reloadResourcesToolStripMenuItem1";
@@ -694,19 +804,12 @@
             this.reloadResourcesToolStripMenuItem1.Text = "Reload resources";
             this.reloadResourcesToolStripMenuItem1.Click += new System.EventHandler(this.reloadResourcesToolStripMenuItem1_Click);
             // 
-            // openFILEFolderToolStripMenuItem
-            // 
-            this.openFILEFolderToolStripMenuItem.Name = "openFILEFolderToolStripMenuItem";
-            this.openFILEFolderToolStripMenuItem.Size = new System.Drawing.Size(193, 20);
-            this.openFILEFolderToolStripMenuItem.Text = "Open \"FILE\" folder in file explorer";
-            this.openFILEFolderToolStripMenuItem.Click += new System.EventHandler(this.openFILEFolderToolStripMenuItem_Click_1);
-            // 
             // MainForm
             // 
             this.AcceptButton = this.cmdPlay;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 629);
+            this.ClientSize = new System.Drawing.Size(907, 716);
             this.Controls.Add(this.cmdPlay);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -723,6 +826,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PathBinding)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -803,6 +908,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem openFILEFolderToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox ipConnect;
+        private System.Windows.Forms.TextBox hostFlag;
+        private System.Windows.Forms.CheckBox checkHost;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox hostPC;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox checkConnect;
     }
 }
 

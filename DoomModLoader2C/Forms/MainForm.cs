@@ -101,6 +101,7 @@ namespace DoomModLoader2
         public MainForm()
         {
             InitializeComponent();
+            //checkConnect.Checked = true;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -111,6 +112,8 @@ namespace DoomModLoader2
 
             txtMap_TextChanged(null, null);
             chkCustomConfiguration_CheckedChanged(null, null);
+            checkConnect_CheckedChanged(null, null);
+            checkHost_CheckedChanged(null, null);
             cmbSkill.SelectedIndex = 3;
             string[] filterValues = { "ALL" };
             filterValues = filterValues.Concat(validWadExtensions).ToArray();
@@ -312,7 +315,30 @@ namespace DoomModLoader2
                 }
             }
         }
-
+        /// <summary>
+        /// Enable/Disable the connect/host
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkConnect_CheckedChanged(object sender, EventArgs e)
+        {
+            bool siEnabled = checkConnect.Checked;
+            ipConnect.Enabled = siEnabled;
+            if (siEnabled)
+                checkHost.Enabled = false;
+            else
+                checkHost.Enabled = true;
+        }
+        private void checkHost_CheckedChanged(object sender, EventArgs e)
+        {
+            bool siEnabled = checkHost.Checked;
+            hostPC.Enabled = siEnabled;
+            hostFlag.Enabled = siEnabled;
+            if (siEnabled)
+                checkConnect.Enabled = false;
+            else
+                checkConnect.Enabled = true;
+        }
         /// <summary>
         /// Enable/Disable the loading of the alternative configuration file
         /// </summary>
@@ -469,7 +495,7 @@ namespace DoomModLoader2
                         if (file == null)
                         {
                             missingFiles.Add(s.Value);
-                            if (s.Key == "PORT_CONFIG")
+                            if (s.Key == "PORT_CONFIG") 
                                 chkCustomConfiguration.Checked = false;
                         }
                     }
@@ -693,10 +719,10 @@ namespace DoomModLoader2
             LoadPWAD(txtSearch.Text);
             UpdateSelectedPWADitems(pwadUpdateMode.RESTORE);
         }
+
         #endregion
 
         #region METHODS
-
         /// <summary>
         /// Load all resources
         /// </summary>
@@ -709,7 +735,6 @@ namespace DoomModLoader2
             LoadPWAD();
             LoadDMLconfiguration();
         }
-
         /// <summary>
         /// <br>Load all the presets from the presets folder </br>
         /// <br>NOTE: This will load just the paths (and names) of the preset.</br>
@@ -1033,6 +1058,7 @@ namespace DoomModLoader2
                         cmbPreset.SelectedItem = cmbPreset.Items.Cast<PathName>().Where(P => P.name == "-").FirstOrDefault();
                     }
                     #endregion
+
                     #region FILE_VIEW_MODE
                     if (cfg.TryGetValue("FILE_VIEW_MODE", out value)) //cfg["SHOW_SUCCESS_MESSAGE"]
                     {
@@ -1042,6 +1068,52 @@ namespace DoomModLoader2
                     {
                         errors.Add("FILE_VIEW_MODE");
                         SharedVar.FILE_VIEW_MODE = fileViewMode.ONLY_FILE_NAME;
+                    }
+                    #endregion
+
+                    #region MP
+                    //CONNECT
+                    if (cfg.TryGetValue("CONNECT", out value)) //cfg["CONNECT"]
+                    {
+                        checkConnect.Checked = Convert.ToBoolean(value);
+                        if (cfg.TryGetValue("CONNECT_IP", out value)) //cfg["CONNECT_IP"]
+                        {
+                            ipConnect.Text = value;
+                        }
+                        else
+                        {
+                            errors.Add("CONNECT_IP");
+                        }
+                    }
+                    else
+                    {
+                        errors.Add("CONNECT");
+                    }
+
+                    //HOST
+                    if (cfg.TryGetValue("HOST", out value)) //cfg["HOST"]
+                    {
+                        checkHost.Checked = Convert.ToBoolean(value);
+                        if (cfg.TryGetValue("HOST_PC", out value)) //cfg["HOST_PC"]
+                        {
+                            hostPC.Text = value;
+                        }
+                        else
+                        {
+                            errors.Add("HOST_PC");
+                        }
+                        if (cfg.TryGetValue("HOST_FLAGS", out value)) //cfg["HOST_FLAGS"]
+                        {
+                            hostFlag.Text = value;
+                        }
+                        else
+                        {
+                            errors.Add("HOST_FLAGS");
+                        }
+                    }
+                    else
+                    {
+                        errors.Add("HOST");
                     }
                     #endregion
 
@@ -1334,6 +1406,14 @@ namespace DoomModLoader2
             if (cmb_vidrender.SelectedIndex != 5)
                 parm.AppendFormat(" +vid_rendermode {0} ", cmb_vidrender.SelectedIndex);
 
+            //MP
+            if (checkConnect.Enabled)
+                parm.AppendFormat(" -join {0} ", ipConnect.Text);
+            if (checkHost.Enabled)
+            {
+                parm.AppendFormat(" -host {0} ", hostPC.Text);
+            }
+
             //CUSTOM COMMAND
             parm.Append(" " + txtCommandLine.Text + " ");
             return parm.ToString();
@@ -1398,7 +1478,7 @@ namespace DoomModLoader2
                     preferences.Add("SCREEN_HEIGHT", txtScreenHeight.Text);
                 }
                 else
-                {
+                { 
                     preferences.Add("SCREEN_WIDTH", "");
                     preferences.Add("SCREEN_HEIGHT", "");
                 }
@@ -1479,6 +1559,27 @@ namespace DoomModLoader2
 
                 preferences.Add("FILE_VIEW_MODE", ((int)SharedVar.FILE_VIEW_MODE).ToString());
 
+                if (checkConnect.Checked)
+                {
+                    preferences.Add("CONNECT", "TRUE");
+                }
+                else
+                {
+                    preferences.Add("CONNECT", "FALSE");
+                }
+
+                if (checkHost.Checked)
+                {
+                    preferences.Add("HOST", "TRUE");
+                }
+                else
+                {
+                    preferences.Add("HOST", "FALSE");
+                }
+
+                preferences.Add("HOST_PC", hostPC.Text);
+                preferences.Add("HOST_FLAGS", hostFlag.Text);
+                preferences.Add("CONNECT_IP", ipConnect.Text);
                 storage.SaveValues(preferences, true);
             }
             catch (Exception ex)
@@ -1673,8 +1774,16 @@ namespace DoomModLoader2
         }
 
 
+
         #endregion
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
