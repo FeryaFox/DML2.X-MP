@@ -43,9 +43,9 @@
             this.lstPWAD = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.hostGM = new System.Windows.Forms.ComboBox();
             this.hostPC = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.hostFlag = new System.Windows.Forms.TextBox();
             this.checkHost = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.ipConnect = new System.Windows.Forms.TextBox();
@@ -247,9 +247,9 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.hostGM);
             this.groupBox10.Controls.Add(this.hostPC);
             this.groupBox10.Controls.Add(this.label11);
-            this.groupBox10.Controls.Add(this.hostFlag);
             this.groupBox10.Controls.Add(this.checkHost);
             this.groupBox10.Controls.Add(this.label10);
             this.groupBox10.Controls.Add(this.ipConnect);
@@ -261,6 +261,18 @@
             this.groupBox10.TabIndex = 4;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "MP";
+            // 
+            // hostGM
+            // 
+            this.hostGM.DataSource = this.PathBinding;
+            this.hostGM.DisplayMember = "name";
+            this.hostGM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hostGM.FormattingEnabled = true;
+            this.hostGM.Location = new System.Drawing.Point(208, 46);
+            this.hostGM.Name = "hostGM";
+            this.hostGM.Size = new System.Drawing.Size(337, 21);
+            this.hostGM.TabIndex = 38;
+            this.hostGM.Visible = false;
             // 
             // hostPC
             // 
@@ -277,14 +289,6 @@
             this.label11.Size = new System.Drawing.Size(35, 26);
             this.label11.TabIndex = 36;
             this.label11.Text = "player\r\ncount";
-            // 
-            // hostFlag
-            // 
-            this.hostFlag.Location = new System.Drawing.Point(208, 42);
-            this.hostFlag.Name = "hostFlag";
-            this.hostFlag.Size = new System.Drawing.Size(336, 20);
-            this.hostFlag.TabIndex = 35;
-            this.hostFlag.Visible = false;
             // 
             // checkHost
             // 
@@ -911,12 +915,12 @@
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox ipConnect;
-        private System.Windows.Forms.TextBox hostFlag;
         private System.Windows.Forms.CheckBox checkHost;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox hostPC;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox checkConnect;
+        private System.Windows.Forms.ComboBox hostGM;
     }
 }
 

@@ -333,7 +333,7 @@ namespace DoomModLoader2
         {
             bool siEnabled = checkHost.Checked;
             hostPC.Enabled = siEnabled;
-            hostFlag.Enabled = siEnabled;
+            hostGM.Enabled = siEnabled;
             if (siEnabled)
                 checkConnect.Enabled = false;
             else
@@ -1089,7 +1089,7 @@ namespace DoomModLoader2
                     {
                         errors.Add("CONNECT");
                     }
-
+                    /*
                     //HOST
                     if (cfg.TryGetValue("HOST", out value)) //cfg["HOST"]
                     {
@@ -1102,9 +1102,10 @@ namespace DoomModLoader2
                         {
                             errors.Add("HOST_PC");
                         }
+                        
                         if (cfg.TryGetValue("HOST_FLAGS", out value)) //cfg["HOST_FLAGS"]
                         {
-                            hostFlag.Text = value;
+                            hostGM.Text = value;
                         }
                         else
                         {
@@ -1115,6 +1116,7 @@ namespace DoomModLoader2
                     {
                         errors.Add("HOST");
                     }
+                    */
                     #endregion
 
                     if (errors.Count > 0)
@@ -1578,7 +1580,7 @@ namespace DoomModLoader2
                 }
 
                 preferences.Add("HOST_PC", hostPC.Text);
-                preferences.Add("HOST_FLAGS", hostFlag.Text);
+                //preferences.Add("HOST_FLAGS", hostGM.Text);
                 preferences.Add("CONNECT_IP", ipConnect.Text);
                 storage.SaveValues(preferences, true);
             }
