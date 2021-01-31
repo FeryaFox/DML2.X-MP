@@ -124,6 +124,7 @@ namespace DoomModLoader2
             {
                 CheckForUpdate(true);
             }
+            hostGM.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         /// <summary>
@@ -954,7 +955,6 @@ namespace DoomModLoader2
                     #region PORT
                     if (cfg.TryGetValue("PORT", out value)) //cfg["PORT"]
                     {
-
                         cmbSourcePort.SelectedItem = cmbSourcePort.Items.Cast<PathName>().Where(p => p.name.Equals(value)).FirstOrDefault();
                     }
                     else
@@ -1089,7 +1089,7 @@ namespace DoomModLoader2
                     {
                         errors.Add("CONNECT");
                     }
-                    /*
+                    
                     //HOST
                     if (cfg.TryGetValue("HOST", out value)) //cfg["HOST"]
                     {
@@ -1102,21 +1102,28 @@ namespace DoomModLoader2
                         {
                             errors.Add("HOST_PC");
                         }
-                        
-                        if (cfg.TryGetValue("HOST_FLAGS", out value)) //cfg["HOST_FLAGS"]
+
+                        string[] gameMode = new string[] { "No mode","Deathmatch", "Cooperative"};
+                        hostGM.Items.AddRange(gameMode);
+
+                        if (!cmbSourcePort.Text.Contains("GZDOOM"))
+                            hostGM.Enabled = false;
+                            
+
+                        if (cfg.TryGetValue("HOST_GM", out value)) //cfg["HOST_GM"]
                         {
-                            hostGM.Text = value;
+                            hostGM.SelectedItem = value;
                         }
                         else
                         {
-                            errors.Add("HOST_FLAGS");
+                            errors.Add("HOST_GM");
                         }
                     }
                     else
                     {
                         errors.Add("HOST");
                     }
-                    */
+                    
                     #endregion
 
                     if (errors.Count > 0)
@@ -1409,12 +1416,27 @@ namespace DoomModLoader2
                 parm.AppendFormat(" +vid_rendermode {0} ", cmb_vidrender.SelectedIndex);
 
             //MP
-            if (checkConnect.Enabled)
+            if (checkConnect.Checked)
                 parm.AppendFormat(" -join {0} ", ipConnect.Text);
-            if (checkHost.Enabled)
+            if (checkHost.Checked)
             {
                 parm.AppendFormat(" -host {0} ", hostPC.Text);
+                if (cmbSourcePort.Text.Contains("GZDOOM")) {
+                    switch (hostGM.Text)
+                    {
+                        //"No mode","Deathmatch", "Cooperative"
+                        case "No mode":
+                            break;
+                        case "Cooperative":
+                            parm.Append(" -сooperative ");
+                            break;
+                        case "Deathmatch":
+                            parm.Append(" -deathmatch ");
+                            break;
+                    }
+                }
             }
+            
 
             //CUSTOM COMMAND
             parm.Append(" " + txtCommandLine.Text + " ");
@@ -1582,6 +1604,7 @@ namespace DoomModLoader2
                 preferences.Add("HOST_PC", hostPC.Text);
                 //preferences.Add("HOST_FLAGS", hostGM.Text);
                 preferences.Add("CONNECT_IP", ipConnect.Text);
+                preferences.Add("HOST_GM", hostGM.Text);
                 storage.SaveValues(preferences, true);
             }
             catch (Exception ex)
@@ -1786,6 +1809,18 @@ namespace DoomModLoader2
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbSkill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void cmbSourcePort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbSourcePort.Text.Contains("GZDOOM"))
+                hostGM.Enabled = true;
+            else
+                hostGM.Enabled = false;
         }
     }
 }

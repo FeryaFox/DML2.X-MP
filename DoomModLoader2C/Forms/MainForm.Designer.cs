@@ -123,7 +123,7 @@
             this.groupBox1.Controls.Add(this.lstPWAD);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 596);
+            this.groupBox1.Size = new System.Drawing.Size(314, 600);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MODS (-file / -deh)";
@@ -240,7 +240,7 @@
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(332, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(563, 596);
+            this.groupBox2.Size = new System.Drawing.Size(563, 600);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Launch Options";
@@ -257,22 +257,18 @@
             this.groupBox10.Controls.Add(this.label9);
             this.groupBox10.Location = new System.Drawing.Point(6, 509);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(550, 80);
+            this.groupBox10.Size = new System.Drawing.Size(550, 85);
             this.groupBox10.TabIndex = 4;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "MP";
             // 
             // hostGM
             // 
-            this.hostGM.DataSource = this.PathBinding;
-            this.hostGM.DisplayMember = "name";
-            this.hostGM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hostGM.FormattingEnabled = true;
-            this.hostGM.Location = new System.Drawing.Point(208, 46);
+            this.hostGM.Location = new System.Drawing.Point(246, 44);
             this.hostGM.Name = "hostGM";
-            this.hostGM.Size = new System.Drawing.Size(337, 21);
+            this.hostGM.Size = new System.Drawing.Size(298, 21);
             this.hostGM.TabIndex = 38;
-            this.hostGM.Visible = false;
             // 
             // hostPC
             // 
@@ -305,19 +301,18 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(178, 49);
+            this.label10.Location = new System.Drawing.Point(178, 47);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 13);
+            this.label10.Size = new System.Drawing.Size(62, 13);
             this.label10.TabIndex = 34;
-            this.label10.Text = "flag";
-            this.label10.Visible = false;
+            this.label10.Text = "GameMode";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // ipConnect
             // 
-            this.ipConnect.Location = new System.Drawing.Point(208, 17);
+            this.ipConnect.Location = new System.Drawing.Point(117, 17);
             this.ipConnect.Name = "ipConnect";
-            this.ipConnect.Size = new System.Drawing.Size(336, 20);
+            this.ipConnect.Size = new System.Drawing.Size(427, 20);
             this.ipConnect.TabIndex = 32;
             this.ipConnect.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -335,7 +330,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(187, 19);
+            this.label9.Location = new System.Drawing.Point(92, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(15, 13);
             this.label9.TabIndex = 27;
@@ -509,6 +504,7 @@
             this.cmbSourcePort.Name = "cmbSourcePort";
             this.cmbSourcePort.Size = new System.Drawing.Size(226, 21);
             this.cmbSourcePort.TabIndex = 23;
+            this.cmbSourcePort.SelectedIndexChanged += new System.EventHandler(this.cmbSourcePort_SelectedIndexChanged);
             // 
             // groupBox5
             // 
@@ -540,6 +536,7 @@
             this.cmbSkill.Name = "cmbSkill";
             this.cmbSkill.Size = new System.Drawing.Size(186, 21);
             this.cmbSkill.TabIndex = 13;
+            this.cmbSkill.SelectedIndexChanged += new System.EventHandler(this.cmbSkill_SelectedIndexChanged);
             // 
             // txtMap
             // 
@@ -751,7 +748,7 @@
             // cmdPlay
             // 
             this.cmdPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPlay.Location = new System.Drawing.Point(10, 629);
+            this.cmdPlay.Location = new System.Drawing.Point(12, 633);
             this.cmdPlay.Name = "cmdPlay";
             this.cmdPlay.Size = new System.Drawing.Size(885, 82);
             this.cmdPlay.TabIndex = 0;
@@ -813,7 +810,7 @@
             this.AcceptButton = this.cmdPlay;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 716);
+            this.ClientSize = new System.Drawing.Size(907, 721);
             this.Controls.Add(this.cmdPlay);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
