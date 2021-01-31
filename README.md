@@ -4,7 +4,7 @@
 
 # ABOUT THIS FORK
 
-This fork was created to introduce the possibility of a more convenient multiplayer game for GZDOOM.
+This fork was created to introduce the possibility of a more convenient multiplayer game with GZDOOM.
 
 # ABOUT DML 2.X
 <strong> Doom Mod Loader 2.X </strong> is a launcher for Doom (and also for Doom 2, Heretic, Hexen, Chex Quest, Strife etc...) mods!<br>
