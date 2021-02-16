@@ -42,6 +42,12 @@
             this.cmdRemovePreset = new System.Windows.Forms.Button();
             this.lstPWAD = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.addSave = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.removeSave = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.hostGM = new System.Windows.Forms.ComboBox();
             this.hostPC = new System.Windows.Forms.TextBox();
@@ -99,6 +105,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PathBinding)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -123,7 +130,7 @@
             this.groupBox1.Controls.Add(this.lstPWAD);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 600);
+            this.groupBox1.Size = new System.Drawing.Size(314, 648);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MODS (-file / -deh)";
@@ -197,7 +204,7 @@
             this.cmbPreset.DisplayMember = "name";
             this.cmbPreset.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPreset.FormattingEnabled = true;
-            this.cmbPreset.Location = new System.Drawing.Point(6, 541);
+            this.cmbPreset.Location = new System.Drawing.Point(6, 590);
             this.cmbPreset.Name = "cmbPreset";
             this.cmbPreset.Size = new System.Drawing.Size(302, 21);
             this.cmbPreset.TabIndex = 6;
@@ -209,7 +216,7 @@
             // 
             // cmdRemovePreset
             // 
-            this.cmdRemovePreset.Location = new System.Drawing.Point(6, 568);
+            this.cmdRemovePreset.Location = new System.Drawing.Point(5, 617);
             this.cmdRemovePreset.Name = "cmdRemovePreset";
             this.cmdRemovePreset.Size = new System.Drawing.Size(302, 21);
             this.cmdRemovePreset.TabIndex = 7;
@@ -226,11 +233,13 @@
             this.lstPWAD.Location = new System.Drawing.Point(6, 110);
             this.lstPWAD.Name = "lstPWAD";
             this.lstPWAD.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstPWAD.Size = new System.Drawing.Size(302, 420);
+            this.lstPWAD.Size = new System.Drawing.Size(302, 472);
             this.lstPWAD.TabIndex = 5;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBox12);
+            this.groupBox2.Controls.Add(this.groupBox11);
             this.groupBox2.Controls.Add(this.groupBox10);
             this.groupBox2.Controls.Add(this.groupBox9);
             this.groupBox2.Controls.Add(this.groupBox8);
@@ -240,10 +249,72 @@
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(332, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(563, 600);
+            this.groupBox2.Size = new System.Drawing.Size(563, 648);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Launch Options";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.addSave);
+            this.groupBox12.Controls.Add(this.label12);
+            this.groupBox12.Controls.Add(this.removeSave);
+            this.groupBox12.Controls.Add(this.comboBox1);
+            this.groupBox12.Location = new System.Drawing.Point(7, 590);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(550, 48);
+            this.groupBox12.TabIndex = 17;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Save";
+            this.groupBox12.Enter += new System.EventHandler(this.groupBox12_Enter);
+            // 
+            // addSave
+            // 
+            this.addSave.Location = new System.Drawing.Point(94, 10);
+            this.addSave.Name = "addSave";
+            this.addSave.Size = new System.Drawing.Size(76, 24);
+            this.addSave.TabIndex = 25;
+            this.addSave.Text = "ADD...";
+            this.addSave.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Source Port:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // removeSave
+            // 
+            this.removeSave.Location = new System.Drawing.Point(176, 10);
+            this.removeSave.Name = "removeSave";
+            this.removeSave.Size = new System.Drawing.Size(76, 24);
+            this.removeSave.TabIndex = 26;
+            this.removeSave.Text = "REMOVE...";
+            this.removeSave.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.PathBinding;
+            this.comboBox1.DisplayMember = "name";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(258, 10);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(285, 21);
+            this.comboBox1.TabIndex = 27;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Location = new System.Drawing.Point(3, 16);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(200, 100);
+            this.groupBox11.TabIndex = 0;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "groupBox11";
             // 
             // groupBox10
             // 
@@ -257,7 +328,7 @@
             this.groupBox10.Controls.Add(this.label9);
             this.groupBox10.Location = new System.Drawing.Point(6, 509);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(550, 85);
+            this.groupBox10.Size = new System.Drawing.Size(550, 80);
             this.groupBox10.TabIndex = 4;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "MP";
@@ -748,7 +819,7 @@
             // cmdPlay
             // 
             this.cmdPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPlay.Location = new System.Drawing.Point(12, 633);
+            this.cmdPlay.Location = new System.Drawing.Point(10, 681);
             this.cmdPlay.Name = "cmdPlay";
             this.cmdPlay.Size = new System.Drawing.Size(885, 82);
             this.cmdPlay.TabIndex = 0;
@@ -810,7 +881,7 @@
             this.AcceptButton = this.cmdPlay;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 721);
+            this.ClientSize = new System.Drawing.Size(907, 770);
             this.Controls.Add(this.cmdPlay);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -827,6 +898,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PathBinding)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -918,6 +991,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox checkConnect;
         private System.Windows.Forms.ComboBox hostGM;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.Button addSave;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button removeSave;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.GroupBox groupBox11;
     }
 }
 

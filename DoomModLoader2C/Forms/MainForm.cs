@@ -1822,5 +1822,15 @@ namespace DoomModLoader2
             else
                 hostGM.Enabled = false;
         }
+
+        private void groupBox12_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
