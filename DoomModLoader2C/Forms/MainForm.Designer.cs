@@ -44,7 +44,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.addSave = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.removeSave = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -102,6 +101,7 @@
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFILEFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reloadResourcesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PathBinding)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -210,10 +210,6 @@
             this.cmbPreset.TabIndex = 6;
             this.cmbPreset.SelectedIndexChanged += new System.EventHandler(this.cmbPreset_SelectedIndexChanged);
             // 
-            // PathBinding
-            // 
-            this.PathBinding.DataSource = typeof(DoomModLoader2.Entity.PathName);
-            // 
             // cmdRemovePreset
             // 
             this.cmdRemovePreset.Location = new System.Drawing.Point(5, 617);
@@ -256,8 +252,8 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.checkBox1);
             this.groupBox12.Controls.Add(this.addSave);
-            this.groupBox12.Controls.Add(this.label12);
             this.groupBox12.Controls.Add(this.removeSave);
             this.groupBox12.Controls.Add(this.comboBox1);
             this.groupBox12.Location = new System.Drawing.Point(7, 590);
@@ -270,26 +266,16 @@
             // 
             // addSave
             // 
-            this.addSave.Location = new System.Drawing.Point(94, 10);
+            this.addSave.Location = new System.Drawing.Point(81, 15);
             this.addSave.Name = "addSave";
             this.addSave.Size = new System.Drawing.Size(76, 24);
             this.addSave.TabIndex = 25;
             this.addSave.Text = "ADD...";
             this.addSave.UseVisualStyleBackColor = true;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 13);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Source Port:";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
             // removeSave
             // 
-            this.removeSave.Location = new System.Drawing.Point(176, 10);
+            this.removeSave.Location = new System.Drawing.Point(163, 15);
             this.removeSave.Name = "removeSave";
             this.removeSave.Size = new System.Drawing.Size(76, 24);
             this.removeSave.TabIndex = 26;
@@ -302,7 +288,7 @@
             this.comboBox1.DisplayMember = "name";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(258, 10);
+            this.comboBox1.Location = new System.Drawing.Point(258, 18);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(285, 21);
             this.comboBox1.TabIndex = 27;
@@ -876,6 +862,16 @@
             this.reloadResourcesToolStripMenuItem1.Text = "Reload resources";
             this.reloadResourcesToolStripMenuItem1.Click += new System.EventHandler(this.reloadResourcesToolStripMenuItem1_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(9, 18);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(59, 17);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "Enable";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.cmdPlay;
@@ -993,10 +989,10 @@
         private System.Windows.Forms.ComboBox hostGM;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.Button addSave;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button removeSave;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
